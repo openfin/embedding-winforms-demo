@@ -19,44 +19,48 @@ namespace embeddingWindowsExample
         OpenFinDesktopApi openFinApi;
         public delegate void embedDelegate(Openfin.Desktop.Application application, TabPage tab);
 
-        List<Openfin.Desktop.Application> applications = new List<Openfin.Desktop.Application>();
+        List<Openfin.Desktop.Application> ofApplications = new List<Openfin.Desktop.Application>();
+
         public Form1()
         {
             InitializeComponent();
-            SetText("Closed");
+            SetText("Connecting...");
             openFinApi = new OpenFinDesktopApi(onOpenFinReady, onOpenFinError, onOpenFinClose);
         }
 
         private void onOpenFinReady(string status)
         {
             SetText("Ready");
-            createApplication("HelloWorldApp2", "http://cdn.openfin.co/embed-web/chart.html", tabPage1);
-            createApplication("HelloWorldApp", "http://cdn.openfin.co/embed-web/", tabPage2);
+
+            //Create Both Applications.
+            createApplication("of-chart-tab", "http://cdn.openfin.co/embed-web/chart.html", tabPage1);
+            createApplication("hello-world-tab", "http://cdn.openfin.co/embed-web/", tabPage2);
         }
 
         private void createApplication (string name, string url, TabPage tab)
-        {
-            var appOptions = new ApplicationOptions(name, name, url);
-            appOptions.MainWindowOptions.Frame = false;
-            appOptions.MainWindowOptions.AutoShow = false;
-            
-           openFinApi.createApplication(appOptions,(app) =>
+        {            
+           openFinApi.createApplication(name, url,(app) =>
             {
-                applications.Add(app);
+                //once the application is ready add it to the list of apps and embed it in its tab.
+                ofApplications.Add(app);
                 embedWindow(app, tab);
             });
         }
 
         private void embedWindow(Openfin.Desktop.Application application, TabPage tab)
         {
-            
+            // InvokeRequired required compares the thread ID of the 
+            // calling thread to the thread ID of the creating thread. 
+            // If these threads are different, it returns true. 
             if (tab.InvokeRequired)
             {
+                //make sure we make UI changes on the UI thread.
                 var d = new embedDelegate(embedWindow);
                 this.Invoke(d, new object[] { application, tab });
             }
             else
             {
+                //We are in the UI thread lets embed the window.
                 var window = application.getWindow();
                 window.embedWindow(tab.Handle, 742, 484, 0, 0, ack =>
                 {
@@ -91,11 +95,13 @@ namespace embeddingWindowsExample
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            applications.ForEach(app =>
+            //lets close out our tab applications.
+            ofApplications.ForEach(app =>
             {
                 app.close();
             });
-
+            
+            //lets give OpenFin some time to close.
             Thread.Sleep(500);
         }
     }

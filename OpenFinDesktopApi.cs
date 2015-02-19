@@ -18,7 +18,6 @@ namespace embeddingWindowsExample
 
         public delegate void stringParamDelegate(string str);
         public delegate void appicationParamDelegate(Application application);
-        public delegate void embedWindowDelegate(Openfin.Desktop.Window window, IntPtr containerhWnd);
 
         public OpenFinDesktopApi(stringParamDelegate onReady, stringParamDelegate onError, stringParamDelegate onClose)
         {
@@ -43,10 +42,17 @@ namespace embeddingWindowsExample
             openFinConnection = new DesktopConnection("c# Embed OpenFin Window", host, port);
             openFinConnection.launchAndConnect(path, args, this, 30);
         }
-        public void createApplication(ApplicationOptions options, appicationParamDelegate callback)
+        public void createApplication(string name, string url, appicationParamDelegate callback)
         {
-            var app = new Openfin.Desktop.Application(options, openFinConnection);
+            //We will create a hidden frameless application
+            var appOptions = new ApplicationOptions(name, name, url);
+            
+            appOptions.MainWindowOptions.Frame = false;
+            appOptions.MainWindowOptions.AutoShow = false;
 
+            var app = new Openfin.Desktop.Application(appOptions, openFinConnection);
+
+            //Make sure the application is ready before we execute the callback
             onApplicationReady(app, (a,b,c) => {
                 callback(app);
             });
@@ -56,6 +62,7 @@ namespace embeddingWindowsExample
 
         private void onApplicationReady(Application application,  InterAppMessageHandler callback)
         {
+            //The Application will send a ready message once its done bootstrappning.
             openFinConnection
                 .getInterApplicationBus()
                 .subscribe(application.getUuid(), "application:ready", callback);
