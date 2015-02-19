@@ -40,7 +40,7 @@ namespace embeddingWindowsExample
             errorCallback = onError;
             closeCallback = onClose;
 
-            openFinConnection = new DesktopConnection("c# demo endpoint", "localhost", 9696);
+            openFinConnection = new DesktopConnection("c# Embed OpenFin Window", host, port);
             openFinConnection.launchAndConnect(path, args, this, 30);
         }
         public void createApplication(ApplicationOptions options, appicationParamDelegate callback)
@@ -53,18 +53,6 @@ namespace embeddingWindowsExample
 
             app.run();
         }
-        
-        public void embedWindowInTarget(Openfin.Desktop.Window window, IntPtr containerhWnd)
-        {
-            window.getNativeId((ack) =>
-            {
-                var windowhWnd = DesktopUtils.getJSONString(ack.getJsonObject(), "data");
-
-                embedWindow(hWndPonterFromHexString(windowhWnd), containerhWnd, 0, 0, 742, 484);
-                window.show();
-
-            });
-        }
 
         private void onApplicationReady(Application application,  InterAppMessageHandler callback)
         {
@@ -74,32 +62,6 @@ namespace embeddingWindowsExample
 
         }
 
-        private IntPtr hWndPonterFromHexString(string hex)
-        {
-            long id;
-
-            if (hex != null && hex.StartsWith("0x"))
-            {
-                hex = hex.Substring(2);
-            }
-
-            long.TryParse(hex, System.Globalization.NumberStyles.AllowHexSpecifier, null, out id);
-
-            return new IntPtr(id);
-
-        }
-
-        private void embedWindow(IntPtr childWindowHandle, IntPtr containerHandle, int x, int y, int newWidth, int newHeight)
-        {
-            SetParent(childWindowHandle, containerHandle);
-            MoveWindow(childWindowHandle, 2, 2, 2, 2, true);
-            MoveWindow(childWindowHandle, x, y, newWidth, newHeight, true);
-        }
-
-        [DllImport("user32.dll")]
-        static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
-        [DllImport("user32.dll")]
-        static extern bool MoveWindow(IntPtr hWmd, int x, int y, int nWidth, int nHeight, bool bRepaint);
         public void onClosed()
         {
             closeCallback("Closed");

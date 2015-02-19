@@ -30,11 +30,11 @@ namespace embeddingWindowsExample
         private void onOpenFinReady(string status)
         {
             SetText("Ready");
-            createAndEmbed("HelloWorldApp2", "http://cdn.openfin.co/embed-web/chart.html", tabPage1);
-            createAndEmbed("HelloWorldApp", "http://cdn.openfin.co/embed-web/", tabPage2);
+            createApplication("HelloWorldApp2", "http://cdn.openfin.co/embed-web/chart.html", tabPage1);
+            createApplication("HelloWorldApp", "http://cdn.openfin.co/embed-web/", tabPage2);
         }
 
-        private void createAndEmbed (string name, string url, TabPage tab)
+        private void createApplication (string name, string url, TabPage tab)
         {
             var appOptions = new ApplicationOptions(name, name, url);
             appOptions.MainWindowOptions.Frame = false;
@@ -43,25 +43,25 @@ namespace embeddingWindowsExample
            openFinApi.createApplication(appOptions,(app) =>
             {
                 applications.Add(app);
-                embed(app, tab);
+                embedWindow(app, tab);
             });
         }
 
-        private void embed(Openfin.Desktop.Application application, TabPage tab)
+        private void embedWindow(Openfin.Desktop.Application application, TabPage tab)
         {
             
             if (tab.InvokeRequired)
             {
-                var d = new embedDelegate(embed);
+                var d = new embedDelegate(embedWindow);
                 this.Invoke(d, new object[] { application, tab });
             }
             else
             {
                 var window = application.getWindow();
-                var d = new OpenFinDesktopApi.embedWindowDelegate(openFinApi.embedWindowInTarget);
-                this.Invoke(d, new object[] { window, tab.Handle });
-                tab.Refresh();
-                //openFinApi.embedWindowInTarget(window, tab.Handle);
+                window.embedWindow(tab.Handle, 742, 484, 0, 0, ack =>
+                {
+                    window.show();
+                });
             }
         }
         private void onOpenFinError(string status)
