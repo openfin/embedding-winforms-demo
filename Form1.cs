@@ -62,7 +62,7 @@ namespace embeddingWindowsExample
             {
                 //We are in the UI thread lets embed the window.
                 var window = application.getWindow();
-                window.embedWindow(tab.Handle, 742, 484, 0, 0, ack =>
+                window.embedInto(tab.Handle, 742, 484, 0, 0, ack =>
                 {
                     window.show();
                 });
@@ -100,7 +100,7 @@ namespace embeddingWindowsExample
             {
                 app.close();
             });
-            
+
             //lets give OpenFin some time to close.
             Thread.Sleep(500);
         }
