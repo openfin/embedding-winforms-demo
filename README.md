@@ -1,5 +1,5 @@
 # embedding-of-demo
-This is a demo application that embeds OpenFin in a Microsoft .Net Application.
+This is a demo application that levereges the OpenFin Window.embedInto API call to embed a OpenFin window in a Microsoft .Net Application.
 
 
 ![embed](embed.png)
