@@ -19,28 +19,18 @@ namespace embeddingWindowsExample
         public delegate void stringParamDelegate(string str);
         public delegate void appicationParamDelegate(Application application);
 
+        public const string OPENFIN_HOST = "localhost";
+        public const int OPENFIN_PORT = 9696;
+
         public OpenFinDesktopApi(stringParamDelegate onReady, stringParamDelegate onError, stringParamDelegate onClose)
         {
-            string host = "localhost";
-            int port = 9696;
-            string runtimeVersion = "3.0.2.16";
-            string args = "--config=\"http://cdn.openfin.co/embed-web/null.json\"";
-
-            // Get default installed location for runtime
-            string path = (Environment.OSVersion.Version.Major > 5 ?
-                // Vista, Win7 or Win8
-                Environment.ExpandEnvironmentVariables("%LOCALAPPDATA%") + "\\OpenFin\\runtime\\" + runtimeVersion + "\\OpenFin\\openfin.exe"
-                    :
-                // XP
-                Environment.ExpandEnvironmentVariables("%APPDATA%") + "..\\Local Settings\\Application Data\\OpenFin\\runtime\\" + runtimeVersion + "\\OpenFin\\openfin.exe"
-            );
-            
             readyCallback = onReady;
             errorCallback = onError;
             closeCallback = onClose;
 
-            openFinConnection = new DesktopConnection("c# Embed OpenFin Window", host, port);
-            openFinConnection.launchAndConnect(path, args, this, 30);
+            openFinConnection = new DesktopConnection("c# Embed OpenFin Window", OPENFIN_HOST, OPENFIN_PORT);
+
+            openFinConnection.connectToVersion("beta", this);
         }
         public void createApplication(string name, string url, appicationParamDelegate callback)
         {
