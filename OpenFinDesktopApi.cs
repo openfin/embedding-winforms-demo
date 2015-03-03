@@ -21,6 +21,7 @@ namespace embeddingWindowsExample
 
         public const string OPENFIN_HOST = "localhost";
         public const int OPENFIN_PORT = 9696;
+        public const string OPENFIN_VERSION = "beta";
 
         public OpenFinDesktopApi(stringParamDelegate onReady, stringParamDelegate onError, stringParamDelegate onClose)
         {
@@ -30,7 +31,7 @@ namespace embeddingWindowsExample
 
             openFinConnection = new DesktopConnection("c# Embed OpenFin Window", OPENFIN_HOST, OPENFIN_PORT);
 
-            openFinConnection.connectToVersion("beta", this);
+            openFinConnection.connectToVersion(OPENFIN_VERSION, this);
         }
         public void createApplication(string name, string url, appicationParamDelegate callback)
         {
