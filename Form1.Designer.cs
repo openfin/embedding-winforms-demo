@@ -40,39 +40,39 @@ namespace embeddingWindowsExample
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Node2");
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Node1", new System.Windows.Forms.TreeNode[] {
-            treeNode25});
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Node5");
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Node3", new System.Windows.Forms.TreeNode[] {
-            treeNode27});
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Node6");
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Node7");
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Node4", new System.Windows.Forms.TreeNode[] {
-            treeNode29,
-            treeNode30});
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Node10");
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Node8", new System.Windows.Forms.TreeNode[] {
-            treeNode32});
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Node11");
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Node9", new System.Windows.Forms.TreeNode[] {
-            treeNode34});
-            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("C# App Content", new System.Windows.Forms.TreeNode[] {
-            treeNode26,
-            treeNode28,
-            treeNode31,
-            treeNode33,
-            treeNode35});
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Node2");
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Node1", new System.Windows.Forms.TreeNode[] {
+            treeNode37});
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Node5");
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("Node3", new System.Windows.Forms.TreeNode[] {
+            treeNode39});
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Node6");
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("Node7");
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Node4", new System.Windows.Forms.TreeNode[] {
+            treeNode41,
+            treeNode42});
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Node10");
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Node8", new System.Windows.Forms.TreeNode[] {
+            treeNode44});
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Node11");
+            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Node9", new System.Windows.Forms.TreeNode[] {
+            treeNode46});
+            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("C# App Content", new System.Windows.Forms.TreeNode[] {
+            treeNode38,
+            treeNode40,
+            treeNode43,
+            treeNode45,
+            treeNode47});
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.label2 = new System.Windows.Forms.Label();
             this.lblConnectionStatus = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
@@ -86,10 +86,12 @@ namespace embeddingWindowsExample
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(742, 484);
+            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControl1.TabIndex = 5;
             // 
             // tabPage1
             // 
+            this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -122,37 +124,78 @@ namespace embeddingWindowsExample
             this.tabPage3.Text = "C# Tab";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(262, 143);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "This is a C# Tab.";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Suspendisse lectus leo",
+            "Consectetur in tempor sit amet",
+            "Placerat quis neque",
+            "Etiam luctus porttitor lorem ",
+            "Sed suscipit est rutrum non",
+            "Curabitur lobortis nisl a enim congue semper",
+            "Aenean commodo ultrices imperdiet",
+            "Vestibulum ut justo vel sapien"});
+            this.comboBox1.Location = new System.Drawing.Point(261, 115);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(232, 21);
+            this.comboBox1.TabIndex = 2;
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "Vivamus fermentum semper porta",
+            "Nunc diam velit",
+            "Adipiscing ut tristique vitae",
+            "Aagittis vel odio",
+            "Maecenas convallis ullamcorper ultricies",
+            "Curabitur ornare"});
+            this.checkedListBox1.Location = new System.Drawing.Point(261, 15);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(232, 94);
+            this.checkedListBox1.TabIndex = 1;
+            // 
             // treeView1
             // 
             this.treeView1.Location = new System.Drawing.Point(6, 15);
             this.treeView1.Name = "treeView1";
-            treeNode25.Name = "Node2";
-            treeNode25.Text = "Node2";
-            treeNode26.Name = "Node1";
-            treeNode26.Text = "Node1";
-            treeNode27.Name = "Node5";
-            treeNode27.Text = "Node5";
-            treeNode28.Name = "Node3";
-            treeNode28.Text = "Node3";
-            treeNode29.Name = "Node6";
-            treeNode29.Text = "Node6";
-            treeNode30.Name = "Node7";
-            treeNode30.Text = "Node7";
-            treeNode31.Name = "Node4";
-            treeNode31.Text = "Node4";
-            treeNode32.Name = "Node10";
-            treeNode32.Text = "Node10";
-            treeNode33.Name = "Node8";
-            treeNode33.Text = "Node8";
-            treeNode34.Name = "Node11";
-            treeNode34.Text = "Node11";
-            treeNode35.Name = "Node9";
-            treeNode35.Text = "Node9";
-            treeNode36.Checked = true;
-            treeNode36.Name = "Node0";
-            treeNode36.Text = "C# App Content";
+            treeNode37.Name = "Node2";
+            treeNode37.Text = "Node2";
+            treeNode38.Name = "Node1";
+            treeNode38.Text = "Node1";
+            treeNode39.Name = "Node5";
+            treeNode39.Text = "Node5";
+            treeNode40.Name = "Node3";
+            treeNode40.Text = "Node3";
+            treeNode41.Name = "Node6";
+            treeNode41.Text = "Node6";
+            treeNode42.Name = "Node7";
+            treeNode42.Text = "Node7";
+            treeNode43.Name = "Node4";
+            treeNode43.Text = "Node4";
+            treeNode44.Name = "Node10";
+            treeNode44.Text = "Node10";
+            treeNode45.Name = "Node8";
+            treeNode45.Text = "Node8";
+            treeNode46.Name = "Node11";
+            treeNode46.Text = "Node11";
+            treeNode47.Name = "Node9";
+            treeNode47.Text = "Node9";
+            treeNode48.Checked = true;
+            treeNode48.Name = "Node0";
+            treeNode48.Text = "C# App Content";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode36});
+            treeNode48});
             this.treeView1.Size = new System.Drawing.Size(249, 437);
             this.treeView1.TabIndex = 0;
             // 
@@ -175,47 +218,6 @@ namespace embeddingWindowsExample
             this.lblConnectionStatus.Size = new System.Drawing.Size(0, 13);
             this.lblConnectionStatus.TabIndex = 7;
             // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "Vivamus fermentum semper porta",
-            "Nunc diam velit",
-            "Adipiscing ut tristique vitae",
-            "Aagittis vel odio",
-            "Maecenas convallis ullamcorper ultricies",
-            "Curabitur ornare"});
-            this.checkedListBox1.Location = new System.Drawing.Point(261, 15);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(232, 94);
-            this.checkedListBox1.TabIndex = 1;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Suspendisse lectus leo",
-            "Consectetur in tempor sit amet",
-            "Placerat quis neque",
-            "Etiam luctus porttitor lorem ",
-            "Sed suscipit est rutrum non",
-            "Curabitur lobortis nisl a enim congue semper",
-            "Aenean commodo ultrices imperdiet",
-            "Vestibulum ut justo vel sapien"});
-            this.comboBox1.Location = new System.Drawing.Point(261, 115);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(232, 21);
-            this.comboBox1.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(262, 143);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "This is a C# Tab.";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,6 +231,8 @@ namespace embeddingWindowsExample
             this.Name = "Form1";
             this.Text = "Embeded OpenFin Applications";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.ResizeBegin += new System.EventHandler(this.Form1_ResizeBegin);
+            this.ResizeEnd += new System.EventHandler(this.Form1_ResizeEnd);
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();

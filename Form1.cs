@@ -17,15 +17,44 @@ namespace embeddingWindowsExample
     public partial class Form1 : Form
     {
         OpenFinDesktopApi openFinApi;
+
+        private Size sizeSnapShot;
         public delegate void embedDelegate(Openfin.Desktop.Application application, TabPage tab);
 
         List<Openfin.Desktop.Application> ofApplications = new List<Openfin.Desktop.Application>();
 
         public Form1()
         {
+            
             InitializeComponent();
             SetText("Connecting...");
             openFinApi = new OpenFinDesktopApi(onOpenFinReady, onOpenFinError, onOpenFinClose);
+        }
+        private void setSizeSnapShot(Size size)
+        {
+            sizeSnapShot = size;
+        }
+
+        private void resizeTo(Size size)
+        {
+            var deltaHeight = size.Height - sizeSnapShot.Height;
+            var deltaWidth = size.Width - sizeSnapShot.Width;
+
+            ofApplications.ForEach(app =>
+            {
+                var window = app.getWindow();
+
+                window.resizeBy(deltaWidth, deltaHeight, ack =>
+                {
+                    window.moveTo(0, 0);
+                });
+            });
+            var tabControllSize = tabControl1.Size;
+            tabControllSize.Height = tabControllSize.Height + deltaHeight;
+            tabControllSize.Width = tabControllSize.Width + deltaWidth;
+            
+            tabControl1.Size = tabControllSize;
+
         }
 
         private void onOpenFinReady(string status)
@@ -38,7 +67,7 @@ namespace embeddingWindowsExample
         }
 
         private void createApplication (string name, string url, TabPage tab)
-        {            
+        {  
            openFinApi.createApplication(name, url,(app) =>
             {
                 //once the application is ready add it to the list of apps and embed it in its tab.
@@ -103,6 +132,16 @@ namespace embeddingWindowsExample
 
             //lets give OpenFin some time to close.
             Thread.Sleep(500);
+        }
+
+        private void Form1_ResizeEnd(object sender, EventArgs e)
+        {
+            resizeTo(this.Size);
+        }
+
+        private void Form1_ResizeBegin(object sender, EventArgs e)
+        {
+            setSizeSnapShot(this.Size);
         }
     }
 }
