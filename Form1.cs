@@ -40,15 +40,16 @@ namespace embeddingWindowsExample
             var deltaHeight = size.Height - sizeSnapShot.Height;
             var deltaWidth = size.Width - sizeSnapShot.Width;
 
-            ofApplications.ForEach(app =>
-            {
-                var window = app.getWindow();
+            if (ofApplications.Count == 0)
+                return;
 
-                window.resizeBy(deltaWidth, deltaHeight, ack =>
+            var win = ofApplications[1].getWindow();
+
+            win.resizeBy(deltaWidth, deltaHeight, ack =>
                 {
-                    window.moveTo(0, 0);
+                    win.moveTo(0, 0);
                 });
-            });
+
             var tabControllSize = tabControl1.Size;
             tabControllSize.Height = tabControllSize.Height + deltaHeight;
             tabControllSize.Width = tabControllSize.Width + deltaWidth;
@@ -67,7 +68,7 @@ namespace embeddingWindowsExample
         }
 
         private void createApplication (string name, string url, TabPage tab)
-        {  
+        {            
            openFinApi.createApplication(name, url,(app) =>
             {
                 //once the application is ready add it to the list of apps and embed it in its tab.
