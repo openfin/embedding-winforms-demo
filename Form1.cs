@@ -40,15 +40,15 @@ namespace embeddingWindowsExample
             var deltaHeight = size.Height - sizeSnapShot.Height;
             var deltaWidth = size.Width - sizeSnapShot.Width;
 
-            if (ofApplications.Count == 0)
-                return;
+            ofApplications.ForEach(app =>
+            {
+                var window = app.getWindow();
 
-            var win = ofApplications[1].getWindow();
-
-            win.resizeBy(deltaWidth, deltaHeight, ack =>
+                window.resizeBy(deltaWidth, deltaHeight, ack =>
                 {
-                    win.moveTo(0, 0);
+                    window.moveTo(0, 0);
                 });
+            });
 
             var tabControllSize = tabControl1.Size;
             tabControllSize.Height = tabControllSize.Height + deltaHeight;
