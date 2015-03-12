@@ -39,9 +39,9 @@
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="OpenfinDesktop, Version=3.0.1.5, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="OpenfinDesktop, Version=3.0.1.6, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\OpenfinDesktop.3.0.1.5\lib\net40\OpenfinDesktop.dll</HintPath>
+      <HintPath>packages\OpenfinDesktop.3.0.1.6\lib\net40\OpenfinDesktop.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

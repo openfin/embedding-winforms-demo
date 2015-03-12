@@ -19,7 +19,7 @@ namespace embeddingWindowsExample
         public delegate void stringParamDelegate(string str);
         public delegate void appicationParamDelegate(Application application);
 
-        public const string OPENFIN_HOST = "localhost";
+        public const string OPENFIN_HOST = "127.0.0.1";
         public const int OPENFIN_PORT = 9696;
         public const string OPENFIN_VERSION = "beta";
 
@@ -72,11 +72,13 @@ namespace embeddingWindowsExample
 
         public void onMessage(string message)
         {
+            System.Diagnostics.Debug.WriteLine(message);
             //nothing of interest.
         }
 
         public void onOutgoingMessage(string message)
         {
+            System.Diagnostics.Debug.WriteLine(message);
             //nothing of interest.
         }
 
