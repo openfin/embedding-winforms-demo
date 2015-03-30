@@ -31,7 +31,7 @@ namespace embeddingWindowsExample
 
             openFinConnection = new DesktopConnection("c# Embed OpenFin Window", OPENFIN_HOST, OPENFIN_PORT);
 
-            openFinConnection.connectToVersion(OPENFIN_VERSION, this);
+            openFinConnection.connectToVersion(OPENFIN_VERSION, this, true, 9090);
         }
         public void createApplication(string name, string url, appicationParamDelegate callback)
         {
