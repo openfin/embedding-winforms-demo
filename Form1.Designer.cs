@@ -10,7 +10,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
 
-namespace embeddingWindowsExample
+namespace EmbeddingWindowsExample
 {
     partial class Form1
     {
@@ -40,29 +40,29 @@ namespace embeddingWindowsExample
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Node2");
-            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Node1", new System.Windows.Forms.TreeNode[] {
-            treeNode37});
-            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Node5");
-            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("Node3", new System.Windows.Forms.TreeNode[] {
-            treeNode39});
-            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Node6");
-            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("Node7");
-            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Node4", new System.Windows.Forms.TreeNode[] {
-            treeNode41,
-            treeNode42});
-            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Node10");
-            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Node8", new System.Windows.Forms.TreeNode[] {
-            treeNode44});
-            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Node11");
-            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Node9", new System.Windows.Forms.TreeNode[] {
-            treeNode46});
-            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("C# App Content", new System.Windows.Forms.TreeNode[] {
-            treeNode38,
-            treeNode40,
-            treeNode43,
-            treeNode45,
-            treeNode47});
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Node2");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Node1", new System.Windows.Forms.TreeNode[] {
+            treeNode13});
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Node5");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Node3", new System.Windows.Forms.TreeNode[] {
+            treeNode15});
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Node6");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Node7");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Node4", new System.Windows.Forms.TreeNode[] {
+            treeNode17,
+            treeNode18});
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Node10");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Node8", new System.Windows.Forms.TreeNode[] {
+            treeNode20});
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Node11");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Node9", new System.Windows.Forms.TreeNode[] {
+            treeNode22});
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("C# App Content", new System.Windows.Forms.TreeNode[] {
+            treeNode14,
+            treeNode16,
+            treeNode19,
+            treeNode21,
+            treeNode23});
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -79,13 +79,16 @@ namespace embeddingWindowsExample
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(10, 25);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(742, 484);
+            this.tabControl1.Size = new System.Drawing.Size(1321, 666);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControl1.TabIndex = 5;
             // 
@@ -95,7 +98,7 @@ namespace embeddingWindowsExample
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(734, 458);
+            this.tabPage1.Size = new System.Drawing.Size(1313, 640);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "OpenFin App 1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -169,33 +172,33 @@ namespace embeddingWindowsExample
             // 
             this.treeView1.Location = new System.Drawing.Point(6, 15);
             this.treeView1.Name = "treeView1";
-            treeNode37.Name = "Node2";
-            treeNode37.Text = "Node2";
-            treeNode38.Name = "Node1";
-            treeNode38.Text = "Node1";
-            treeNode39.Name = "Node5";
-            treeNode39.Text = "Node5";
-            treeNode40.Name = "Node3";
-            treeNode40.Text = "Node3";
-            treeNode41.Name = "Node6";
-            treeNode41.Text = "Node6";
-            treeNode42.Name = "Node7";
-            treeNode42.Text = "Node7";
-            treeNode43.Name = "Node4";
-            treeNode43.Text = "Node4";
-            treeNode44.Name = "Node10";
-            treeNode44.Text = "Node10";
-            treeNode45.Name = "Node8";
-            treeNode45.Text = "Node8";
-            treeNode46.Name = "Node11";
-            treeNode46.Text = "Node11";
-            treeNode47.Name = "Node9";
-            treeNode47.Text = "Node9";
-            treeNode48.Checked = true;
-            treeNode48.Name = "Node0";
-            treeNode48.Text = "C# App Content";
+            treeNode13.Name = "Node2";
+            treeNode13.Text = "Node2";
+            treeNode14.Name = "Node1";
+            treeNode14.Text = "Node1";
+            treeNode15.Name = "Node5";
+            treeNode15.Text = "Node5";
+            treeNode16.Name = "Node3";
+            treeNode16.Text = "Node3";
+            treeNode17.Name = "Node6";
+            treeNode17.Text = "Node6";
+            treeNode18.Name = "Node7";
+            treeNode18.Text = "Node7";
+            treeNode19.Name = "Node4";
+            treeNode19.Text = "Node4";
+            treeNode20.Name = "Node10";
+            treeNode20.Text = "Node10";
+            treeNode21.Name = "Node8";
+            treeNode21.Text = "Node8";
+            treeNode22.Name = "Node11";
+            treeNode22.Text = "Node11";
+            treeNode23.Name = "Node9";
+            treeNode23.Text = "Node9";
+            treeNode24.Checked = true;
+            treeNode24.Name = "Node0";
+            treeNode24.Text = "C# App Content";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode48});
+            treeNode24});
             this.treeView1.Size = new System.Drawing.Size(249, 437);
             this.treeView1.TabIndex = 0;
             // 
@@ -222,7 +225,7 @@ namespace embeddingWindowsExample
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(756, 521);
+            this.ClientSize = new System.Drawing.Size(1335, 703);
             this.Controls.Add(this.lblConnectionStatus);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tabControl1);
@@ -230,9 +233,6 @@ namespace embeddingWindowsExample
             this.MinimumSize = new System.Drawing.Size(560, 560);
             this.Name = "Form1";
             this.Text = "Embeded OpenFin Applications";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.ResizeBegin += new System.EventHandler(this.Form1_ResizeBegin);
-            this.ResizeEnd += new System.EventHandler(this.Form1_ResizeEnd);
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
