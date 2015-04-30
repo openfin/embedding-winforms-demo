@@ -43,7 +43,7 @@ namespace EmbeddingWindowsExample
             //We can get the instance of the singleton runtime object by usig the GetRuntimeInstance function and passing 
             var openFinRuntime = Runtime.GetRuntimeInstance(runtimeOptions);
 
-            //The connected event we can  
+            //THIS IS OPTIONAL, Each Embedded view will connect directly or use an existing connection, the connect function accepts an action that will either be called when the runtime connects or be called right away if the runtime is already connected.
             openFinRuntime.Connect(() => Utils.InvokeOnUiThreadIfRequired(this, () => 
                 {
                     this.lblConnectionStatus.Text = "Connected";
