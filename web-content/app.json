@@ -1,0 +1,20 @@
+{
+    "devtools_port": 9090,
+    "startup_app": {
+        "name": "embedWindowDemo",
+        "url": "http://localhost:5000/index.html",
+        "uuid": "embedWindowDemo",
+        "applicationIcon": "http://localhost:5000/favicon.ico",
+        "autoShow": true
+    },
+    "runtime": {
+        "arguments": "",
+        "version": "beta"
+    },
+    "shortcut": {
+        "company": "OpenFin",
+        "description": "embed window demo",
+        "icon": "http://localhost:5000/favicon.ico",
+        "name": "embedWindowDemo"
+    }
+}
