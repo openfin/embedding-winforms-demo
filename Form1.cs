@@ -14,7 +14,7 @@ namespace EmbeddingWindowsExample
         {
             InitializeComponent();
             this.lblConnectionStatus.Text = "Connecting...";
-            //Runtime options will hold our runtime 
+            //Runtime options is how we set up the OpenFin Runtime environment,
             var runtimeOptions = new RuntimeOptions {
                 Version = version,
                 EnableRemoteDevTools = true,
@@ -30,7 +30,7 @@ namespace EmbeddingWindowsExample
             tabPage2.Controls.Add(docsEmbeddedView);
 
             //Initialize the chart view by passing the runtime Options and the ApplicationOptions
-            chartEmbeddedView.Initialize(runtimeOptions, new ApplicationOptions("of-chart-tab-uuid", "of-chart-tab", "http://cdn.openfin.co/embed-web/chart.html"));
+            chartEmbeddedView.Initialize(runtimeOptions, new ApplicationOptions("of-chart-tab", "of-chart-tab-uuid", "http://cdn.openfin.co/embed-web/chart.html"));
 
             //We want to re-use the chart application and create a new window for it, lets wait until its ready.
             chartEmbeddedView.OnReady += (sender, e) =>
