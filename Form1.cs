@@ -9,7 +9,7 @@ namespace EmbeddingWindowsExample
     {
         private EmbeddedView chartEmbeddedView;
         private EmbeddedView docsEmbeddedView;
-        const string version = "alpha";
+        const string version = "4.40.3.2";
         public Form1()
         {
             InitializeComponent();
