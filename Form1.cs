@@ -17,6 +17,7 @@ namespace EmbeddingWindowsExample
             //Runtime options is how we set up the OpenFin Runtime environment,
             var runtimeOptions = new RuntimeOptions {
                 Version = version,
+                Arguments = "--v=1",
                 EnableRemoteDevTools = true,
                 RemoteDevToolsPort = 9090
             };
