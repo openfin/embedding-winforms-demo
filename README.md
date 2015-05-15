@@ -29,7 +29,7 @@ panel1.Controls.Add(OpenFinEmbeddedView);
 ```
 
 ### Runtime Options
-The Runtime Options object will specify the OpenFin Runtime being used, options include: target runtime (alpha, beta, 32/64 bits...etc), the ability to use remote debugging or specifiying the RVM location, you can read more about options in our [Docs](https://openfin.co/developers/application-config/):
+The Runtime Options object specifies the OpenFin Runtime being used, options include: target runtime (alpha, beta, 32/64 bits...etc), the ability to use remote debugging or specifiying the RVM location, you can read more about options in our [Docs](https://openfin.co/developers/application-config/):
 ```js
 var runtimeOptions = new Openfin.Desktop.RuntimeOptions
 {
@@ -40,7 +40,7 @@ var runtimeOptions = new Openfin.Desktop.RuntimeOptions
 ```
 
 ###Application Options
-The Application Options object will allow you to configure the OpenFin Application being embedded, options include: name, URL, icon and window options, you can read more about options in our [Docs](https://openfin.co/developers/application-config/):
+The Application Options object allows you to configure the OpenFin Application being embedded, options include: name, URL, icon and window options, you can read more about options in our [Docs](https://openfin.co/developers/application-config/):
 ```js
 var appOptions = new Openfin.Desktop.ApplicationOptions("of-chart", 
     "of-chart-uuid", "http://cdn.openfin.co/embed-web/chart.html");
@@ -77,7 +77,7 @@ OpenFinEmbeddedView.OnReady += (sender, e) =>
 ```
 
 ###Runtime Object
-Every EmbeddedView control that shares a RuntimeOptions object will share a connection to the OpenFin Runtime, you can obtain this singleton object via the Runtime.GetRuntimeInstance function, this will allow you to publish and subscribe to Inter Application Bus messages, react to disconnect events, initiating connect calls (this is optional and unecessary in the case where one or more EmbeddedView control has been initialized).
+Every EmbeddedView control that shares a RuntimeOptions object will share a connection to the OpenFin Runtime. You can obtain this singleton object via the Runtime.GetRuntimeInstance function. It allows you to publish and subscribe to Inter Application Bus messages, react to disconnect events, and initiate connect calls (this is optional and unnecessary in the case where one or more EmbeddedView control has been initialized).
 ```js
 var openFinRuntime = Runtime.GetRuntimeInstance(runtimeOptions);
 openFinRuntime.Connect(() => 
