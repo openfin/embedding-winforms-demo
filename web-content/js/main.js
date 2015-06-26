@@ -41,7 +41,7 @@
             updateAdapterIndicator();
             setVersionNumber();
             setLearnMoreEventHandler();
-
+            sendAppReadyMessage();
             var app = fin.desktop.Application.getCurrent();
 
             app.addEventListener("run-requested", function (event) {
