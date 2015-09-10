@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>OpenFin Template</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <h1>Hello, OpenFin!</h1>
+          <p>This is an OpenFin application.</p>
+          <p id="version-number-container" class="invisible">
+            Current version: <span id="of-version"></span>
+          </p>
+          <p>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputFile">File input</label>
+              <input type="file" id="exampleInputFile">
+              <p class="help-block">Example block-level help text here.</p>
+            </div>
+            <select>
+              <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+              <option value="mercedes">Mercedes</option>
+              <option value="audi">Audi</option>
+            </select>
+            <label for="meeting">Meeting Date : </label><input id="meeting" type="date" value="2011-01-13"/>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> Check me out
+              </label>
+            </div>
+            <a href="http://www.openfin.co" target="myNameStuff" >Navigate herer dude.</a>
+            <button type="btn" class="btn btn-default" onclick="doStuff()">Click herer</button>
+          </p>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <footer>
+      <span>
+        OpenFin adapter ready:
+      </span>
+      <div id="status-indicator"></div>
+    </footer>
+  </div>
+  <script src="js/main.js"></script>
+  <script>
+  var childWindow;
+  function doStuff() {
+
+    if(childWindow) {
+      childWindow.focus();
+      childWindow.show();
+    };
+
+    childWindow = new fin.desktop.Window({
+        name: "childWindow",
+        url: "http://www.openfin.co",
+        defaultWidth: 320,
+        defaultHeight: 320,
+        defaultTop: 10,
+        defaultLeft: 300,
+        frame: false,
+        resize: false,
+        windowState: "normal",
+        autoShow: true
+    }, function () {
+        console.log("The window has successfully been created");
+    }, function () {
+        console.log("Error creating window");
+    });
+  }
+  </script>
+</body>
+</html>
