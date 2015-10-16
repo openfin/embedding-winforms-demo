@@ -8,7 +8,7 @@ namespace EmbeddingWindowsExample
     public partial class Form1 : Form
     {
         private EmbeddedView chartEmbeddedView;
-        const string version = "beta";
+        const string version = "alpha";
         public Form1()
         {
             InitializeComponent();
