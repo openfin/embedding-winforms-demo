@@ -8,15 +8,13 @@ namespace EmbeddingWindowsExample
     public partial class Form1 : Form
     {
         private EmbeddedView chartEmbeddedView;
-        const string version = "alpha";
         public Form1()
         {
             InitializeComponent();
             this.lblConnectionStatus.Text = "Connecting...";
             //Runtime options is how we set up the OpenFin Runtime environment,
             var runtimeOptions = new RuntimeOptions {
-                Version = version,
-                Arguments = "--v=1",
+                Version = "alpha",
                 EnableRemoteDevTools = true,
                 RemoteDevToolsPort = 9090
             };
@@ -32,9 +30,8 @@ namespace EmbeddingWindowsExample
 
             //We can get the instance of the singleton runtime object by usig the GetRuntimeInstance function and passing 
             var openFinRuntime = Runtime.GetRuntimeInstance(runtimeOptions);
-            
-            //THIS IS OPTIONAL, Each Embedded view will connect directly or use an existing connection, the connect function accepts an action that will either be called when the runtime connects or be called right away if the runtime is already connected.
-            openFinRuntime.Connect(() => 
+
+            chartEmbeddedView.OnReady += (sender, e) =>
             {
                 //Update the conection status:
                 Utils.InvokeOnUiThreadIfRequired(this, () => { this.lblConnectionStatus.Text = "Connected"; });
@@ -43,11 +40,11 @@ namespace EmbeddingWindowsExample
                 openFinRuntime.InterApplicationBus.subscribe(chartEmbeddedView.OpenfinApplication.getUuid(), "chart-click", (senderUuid, topic, data) =>
                 {
                     var dataAsJObject = JObject.FromObject(data);
-                    Utils.InvokeOnUiThreadIfRequired(this, () => { 
-                        label5.Text = string.Format("Key:{0}, {1} at {2}", dataAsJObject.GetValue("key"), dataAsJObject.GetValue("y"), dataAsJObject.GetValue("x")); 
+                    Utils.InvokeOnUiThreadIfRequired(this, () => {
+                        label5.Text = string.Format("Key:{0}, {1} at {2}", dataAsJObject.GetValue("key"), dataAsJObject.GetValue("y"), dataAsJObject.GetValue("x"));
                     });
                 });
-            });
+            };
         }
 
     }
