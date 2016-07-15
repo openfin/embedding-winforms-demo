@@ -14,7 +14,7 @@ namespace EmbeddingWindowsExample
             this.lblConnectionStatus.Text = "Connecting...";
             //Runtime options is how we set up the OpenFin Runtime environment,
             var runtimeOptions = new RuntimeOptions {
-                Version = "alpha",
+                Version = "stable",
                 EnableRemoteDevTools = true,
                 RemoteDevToolsPort = 9090
             };
