@@ -31,7 +31,7 @@ namespace EmbeddingWindowsExample
             //We can get the instance of the singleton runtime object by usig the GetRuntimeInstance function and passing 
             var openFinRuntime = Runtime.GetRuntimeInstance(runtimeOptions);
 
-            chartEmbeddedView.OnReady += (sender, e) =>
+            chartEmbeddedView.Ready += (sender, e) =>
             {
                 //Update the conection status:
                 Utils.InvokeOnUiThreadIfRequired(this, () => { this.lblConnectionStatus.Text = "Connected"; });
